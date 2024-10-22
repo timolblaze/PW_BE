@@ -1,0 +1,51 @@
+[{
+  "_id": {
+    "$oid": "6713a51aaec15efba75e4635"
+  },
+  "fullName": "somtochukwu",
+  "email": "somto@gmail.com",
+  "password": "$2b$10$YjdadinzWrRA5M41wm3tfegSCAJX6YuolFR5p2YoMUmlAikT3Ny5q",
+  "role": "user",
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2024-10-19T12:24:58.840Z"
+  },
+  "updatedAt": {
+    "$date": "2024-10-19T17:08:05.272Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6713e329a13f4e7ed5be7c45"
+  },
+  "fullName": "somto",
+  "email": "somt@gmail.com",
+  "password": "$2b$10$YjdadinzWrRA5M41wm3tfegSCAJX6YuolFR5p2YoMUmlAikT3Ny5q",
+  "role": "user",
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2024-10-19T12:24:58.840Z"
+  },
+  "updatedAt": {
+    "$date": "2024-10-19T16:48:44.677Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6713e6c1a13f4e7ed5be7c46"
+  },
+  "fullName": "admin",
+  "email": "admin@gmail.com",
+  "password": "$2b$10$YjdadinzWrRA5M41wm3tfegSCAJX6YuolFR5p2YoMUmlAikT3Ny5q",
+  "role": "admin",
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2024-10-19T12:24:58.840Z"
+  },
+  "updatedAt": {
+    "$date": "2024-10-19T16:56:59.311Z"
+  },
+  "__v": 0
+}]
