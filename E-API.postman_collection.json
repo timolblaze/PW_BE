@@ -1,0 +1,931 @@
+{
+	"info": {
+		"_postman_id": "97d70988-acc9-4dc3-baa1-1a499aff56ea",
+		"name": "E-API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29282463"
+	},
+	"item": [
+		{
+			"name": "Profile Mgt",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"somto@gmail.com\",\n    \"password\": \"password\"\n}\n\n// {\n//    \"email\": \"admin@gmail.com\",\n//     \"password\": \"password\"\n// }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/auth/register",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"somto@gmail.com\",\n    \"password\": \"password\"\n}\n\n// {\n//    \"email\": \"admin@gmail.com\",\n//     \"password\": \"password\"\n// }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/auth/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Disable One User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzEzZTZjMWExM2Y0ZTdlZDViZTdjNDYiLCJpYXQiOjE3MjkzNTc1NjUsImV4cCI6MTczMDU2NzE2NX0.RUEKJ2TJ6ZKCtURgNIwggrAPo2nnqFSBhHDZoGl6ZGg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \n    \"email\": \"somto@gmail.com\",\n    \"password\": \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/users/6713a51aaec15efba75e4635",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"6713a51aaec15efba75e4635"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Many Users",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzEzYTUxYWFlYzE1ZWZiYTc1ZTQ2MzUiLCJpYXQiOjE3MjkzNTU2NjQsImV4cCI6MTczMDU2NTI2NH0.VdiTroKxQAHMwA0xns9E_bAVbx5Ay8uShjQyxccd6fM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \n    \"email\": \"somto@gmail.com\",\n    \"password\": \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/users/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update One User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzEzYTUxYWFlYzE1ZWZiYTc1ZTQ2MzUiLCJpYXQiOjE3MjkzNTU2NjQsImV4cCI6MTczMDU2NTI2NH0.VdiTroKxQAHMwA0xns9E_bAVbx5Ay8uShjQyxccd6fM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \n    \"fullName\": \"somtochukwu\",\n    \"password\": \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/users/6713a51aaec15efba75e4635",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"6713a51aaec15efba75e4635"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One User",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzEzYTUxYWFlYzE1ZWZiYTc1ZTQ2MzUiLCJpYXQiOjE3MjkzNTU2NjQsImV4cCI6MTczMDU2NTI2NH0.VdiTroKxQAHMwA0xns9E_bAVbx5Ay8uShjQyxccd6fM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \n    \"email\": \"somto@gmail.com\",\n    \"password\": \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/users/6713a51aaec15efba75e4635",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"6713a51aaec15efba75e4635"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Categories",
+			"item": [
+				{
+					"name": "Create Category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzEzZTZjMWExM2Y0ZTdlZDViZTdjNDYiLCJpYXQiOjE3MjkzNzA2MDIsImV4cCI6MTczMDU4MDIwMn0.TeCjGk4_2Ik9QLOOXNcgw8mlpTnF1QEOT8o3_OPxqkQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Baby Food\",\n    \"description\": \"ghshshhsshhsshshs\",\n    \"icon\": \"hhjdjdjdd\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/categories/new",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"categories",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzEzZTZjMWExM2Y0ZTdlZDViZTdjNDYiLCJpYXQiOjE3MjkzNzA2MDIsImV4cCI6MTczMDU4MDIwMn0.TeCjGk4_2Ik9QLOOXNcgw8mlpTnF1QEOT8o3_OPxqkQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Baby Food\",\n    \"description\": \"ghshshhsshhsshshs\",\n    \"icon\": \"hhjdjdjdd\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/categories/671419f904cc8f1c134c4de9",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"categories",
+								"671419f904cc8f1c134c4de9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Disable Category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzEzZTZjMWExM2Y0ZTdlZDViZTdjNDYiLCJpYXQiOjE3MjkzNzA2MDIsImV4cCI6MTczMDU4MDIwMn0.TeCjGk4_2Ik9QLOOXNcgw8mlpTnF1QEOT8o3_OPxqkQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Lady Food\",\n    \"description\": \"ghshshhsshhsshshs\",\n    \"icon\": \"hhjdjdjdd\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/categories/671419f904cc8f1c134c4de9",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"categories",
+								"671419f904cc8f1c134c4de9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One Category",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzEzZTZjMWExM2Y0ZTdlZDViZTdjNDYiLCJpYXQiOjE3MjkzNzA2MDIsImV4cCI6MTczMDU4MDIwMn0.TeCjGk4_2Ik9QLOOXNcgw8mlpTnF1QEOT8o3_OPxqkQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Lady Food\",\n    \"description\": \"ghshshhsshhsshshs\",\n    \"icon\": \"hhjdjdjdd\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/categories/671419f904cc8f1c134c4de9",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"categories",
+								"671419f904cc8f1c134c4de9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Many Categories",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzEzZTZjMWExM2Y0ZTdlZDViZTdjNDYiLCJpYXQiOjE3MjkzNzA2MDIsImV4cCI6MTczMDU4MDIwMn0.TeCjGk4_2Ik9QLOOXNcgw8mlpTnF1QEOT8o3_OPxqkQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Lady Food\",\n    \"description\": \"ghshshhsshhsshshs\",\n    \"icon\": \"hhjdjdjdd\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/categories",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Create Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzEzZTZjMWExM2Y0ZTdlZDViZTdjNDYiLCJpYXQiOjE3MjkzNzA2MDIsImV4cCI6MTczMDU4MDIwMn0.TeCjGk4_2Ik9QLOOXNcgw8mlpTnF1QEOT8o3_OPxqkQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Baby t\",\n    \"description\": \"ghshshhsshhsshshs\",\n    \"category\": \"671419f904cc8f1c134c4de9\",\n    \"icon\": \"hhjdjdjdd\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/products/new",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzEzZTZjMWExM2Y0ZTdlZDViZTdjNDYiLCJpYXQiOjE3MjkzNzA2MDIsImV4cCI6MTczMDU4MDIwMn0.TeCjGk4_2Ik9QLOOXNcgw8mlpTnF1QEOT8o3_OPxqkQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Baby Fool\",\n    \"description\": \"hmm\",\n    \"icon\": \"hhjdjdjdd\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/products/67142a03e7991515ad1c08ff",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"67142a03e7991515ad1c08ff"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Disable Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzEzZTZjMWExM2Y0ZTdlZDViZTdjNDYiLCJpYXQiOjE3MjkzNzA2MDIsImV4cCI6MTczMDU4MDIwMn0.TeCjGk4_2Ik9QLOOXNcgw8mlpTnF1QEOT8o3_OPxqkQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Lady Food\",\n    \"description\": \"ghshshhsshhsshshs\",\n    \"icon\": \"hhjdjdjdd\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/products/67142a03e7991515ad1c08ff",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"67142a03e7991515ad1c08ff"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One Product",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzEzZTZjMWExM2Y0ZTdlZDViZTdjNDYiLCJpYXQiOjE3MjkzNzA2MDIsImV4cCI6MTczMDU4MDIwMn0.TeCjGk4_2Ik9QLOOXNcgw8mlpTnF1QEOT8o3_OPxqkQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Lady Food\",\n    \"description\": \"ghshshhsshhsshshs\",\n    \"icon\": \"hhjdjdjdd\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{8080_v1}}/products/67142a03e7991515ad1c08ff",
+							"host": [
+								"{{8080_v1}}"
+							],
+							"path": [
+								"products",
+								"67142a03e7991515ad1c08ff"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Many Products",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzEzZTZjMWExM2Y0ZTdlZDViZTdjNDYiLCJpYXQiOjE3MjkzNzA2MDIsImV4cCI6MTczMDU4MDIwMn0.TeCjGk4_2Ik9QLOOXNcgw8mlpTnF1QEOT8o3_OPxqkQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Lady Food\",\n    \"description\": \"ghshshhsshhsshshs\",\n    \"icon\": \"hhjdjdjdd\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/products?sortBy=popular&limit=2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"products"
+							],
+							"query": [
+								{
+									"key": "sortBy",
+									"value": "popular"
+								},
+								{
+									"key": "limit",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "Create Order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzEzYTUxYWFlYzE1ZWZiYTc1ZTQ2MzUiLCJpYXQiOjE3MjkzOTI2OTYsImV4cCI6MTczMDYwMjI5Nn0.ngmYg82qeuNae3tDt7j0IMChWZGdL7N3baU4gZhwcLk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"reference\": \"7cd89e88-2a11-490f-80f2-1862dc0ddcc3\",\n    \"product\": \"67142a03e7991515ad1c08ff\",\n    \"amount\": 5000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/orders/new",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"orders",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzEzZTZjMWExM2Y0ZTdlZDViZTdjNDYiLCJpYXQiOjE3MjkzNzA2MDIsImV4cCI6MTczMDU4MDIwMn0.TeCjGk4_2Ik9QLOOXNcgw8mlpTnF1QEOT8o3_OPxqkQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"status\": \"completed\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/orders/6714767d13cbbb254a5411e0",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"orders",
+								"6714767d13cbbb254a5411e0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Disable Order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzEzZTZjMWExM2Y0ZTdlZDViZTdjNDYiLCJpYXQiOjE3MjkzNzA2MDIsImV4cCI6MTczMDU4MDIwMn0.TeCjGk4_2Ik9QLOOXNcgw8mlpTnF1QEOT8o3_OPxqkQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Lady Food\",\n    \"description\": \"ghshshhsshhsshshs\",\n    \"icon\": \"hhjdjdjdd\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/products/67142a03e7991515ad1c08ff",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"67142a03e7991515ad1c08ff"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One Order",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzEzZTZjMWExM2Y0ZTdlZDViZTdjNDYiLCJpYXQiOjE3MjkzNzA2MDIsImV4cCI6MTczMDU4MDIwMn0.TeCjGk4_2Ik9QLOOXNcgw8mlpTnF1QEOT8o3_OPxqkQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Lady Food\",\n    \"description\": \"ghshshhsshhsshshs\",\n    \"icon\": \"hhjdjdjdd\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/products/67142a03e7991515ad1c08ff",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"products",
+								"67142a03e7991515ad1c08ff"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Many Orders",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzEzZTZjMWExM2Y0ZTdlZDViZTdjNDYiLCJpYXQiOjE3MjkzNzA2MDIsImV4cCI6MTczMDU4MDIwMn0.TeCjGk4_2Ik9QLOOXNcgw8mlpTnF1QEOT8o3_OPxqkQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Lady Food\",\n    \"description\": \"ghshshhsshhsshshs\",\n    \"icon\": \"hhjdjdjdd\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/products?sortBy=popular&limit=2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"products"
+							],
+							"query": [
+								{
+									"key": "sortBy",
+									"value": "popular"
+								},
+								{
+									"key": "limit",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Generate Reference",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzEzZTZjMWExM2Y0ZTdlZDViZTdjNDYiLCJpYXQiOjE3MjkzNzA2MDIsImV4cCI6MTczMDU4MDIwMn0.TeCjGk4_2Ik9QLOOXNcgw8mlpTnF1QEOT8o3_OPxqkQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Lady Food\",\n    \"description\": \"ghshshhsshhsshshs\",\n    \"icon\": \"hhjdjdjdd\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/orders/ref",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"orders",
+								"ref"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
