@@ -17,7 +17,7 @@ categoryRouter.post(
 categoryRouter.get(
     "/",
     [
-        authenticate,
+        // authenticate,
         validate(CategorySchemas, CategoryFields.GetAllCategories)
     ],
     categoryController.getCategories
@@ -26,7 +26,7 @@ categoryRouter.get(
 categoryRouter.get(
     "/:id",
     [
-        authenticate,
+        // authenticate,
         validate(CategorySchemas, CategoryFields.GetOneCategory)
     ],
     categoryController.getCategory

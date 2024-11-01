@@ -1,37 +1,5 @@
 [{
   "_id": {
-    "$oid": "671419f904cc8f1c134c4de9"
-  },
-  "title": "drinks",
-  "description": "something random bout drinks.",
-  "icon": "https://c8.alamy.com/comp/2Y0BRWH/bottles-of-global-soft-drink-brands-including-products-of-coca-cola-company-and-pepsico-2Y0BRWH.jpg",
-  "isDeleted": false,
-  "createdAt": {
-    "$date": "2024-10-19T20:43:37.376Z"
-  },
-  "updatedAt": {
-    "$date": "2024-10-19T20:55:28.889Z"
-  },
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "67141b876f35c00de43df3c5"
-  },
-  "title": "baby food",
-  "description": "something random bout baby food.",
-  "icon": "http://localhost:5173/src/assets/smileBaby.png",
-  "isDeleted": false,
-  "createdAt": {
-    "$date": "2024-10-19T20:50:15.384Z"
-  },
-  "updatedAt": {
-    "$date": "2024-10-19T20:50:15.384Z"
-  },
-  "__v": 0
-},
-{
-  "_id": {
     "$oid": "67142bc188bcdf75ae067119"
   },
   "title": "groceries",
@@ -53,22 +21,6 @@
   "title": "skincare",
   "description": "something random bout skincare.",
   "icon": "https://media.istockphoto.com/id/1247952445/photo/female-hands-holding-shopping-basket-with-cosmetics-on-pink-background-beauty-products-sale.jpg?s=612x612&w=0&k=20&c=XXrbSlWX-dYWn9HYGJj4x2xjQEdFN1vOrJu860GeeNo=",
-  "isDeleted": false,
-  "createdAt": {
-    "$date": "2024-10-19T20:50:15.384Z"
-  },
-  "updatedAt": {
-    "$date": "2024-10-19T20:50:15.384Z"
-  },
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "67142be688bcdf75ae06711b"
-  },
-  "title": "home & kitchen",
-  "description": "something random bout home & kitchen.",
-  "icon": "https://i0.wp.com/blog.service.works/wp-content/uploads/2023/05/Appliance-Repairs.jpg?fit=1366%2C768&ssl=1",
   "isDeleted": false,
   "createdAt": {
     "$date": "2024-10-19T20:50:15.384Z"

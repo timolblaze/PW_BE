@@ -1,5 +1,5 @@
 import { Application } from 'express';
-import { apiVersion } from '@configs'
+import { API_VERSION as apiVersion } from '@configs'
 import { serverController } from '@controllers';
 import { authRouter, userRouter, uploadRouter, serverRouter, categoryRouter, productRouter, orderRouter } from '.';
 

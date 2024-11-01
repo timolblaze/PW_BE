@@ -2,8 +2,8 @@
   "_id": {
     "$oid": "6713a51aaec15efba75e4635"
   },
-  "fullName": "somtochukwu",
-  "email": "somto@gmail.com",
+  "fullName": "customer one",
+  "email": "customer1@gmail.com",
   "password": "$2b$10$YjdadinzWrRA5M41wm3tfegSCAJX6YuolFR5p2YoMUmlAikT3Ny5q",
   "role": "user",
   "isDeleted": false,
@@ -19,8 +19,8 @@
   "_id": {
     "$oid": "6713e329a13f4e7ed5be7c45"
   },
-  "fullName": "somto",
-  "email": "somt@gmail.com",
+  "fullName": "customer two",
+  "email": "customer2@gmail.com",
   "password": "$2b$10$YjdadinzWrRA5M41wm3tfegSCAJX6YuolFR5p2YoMUmlAikT3Ny5q",
   "role": "user",
   "isDeleted": false,

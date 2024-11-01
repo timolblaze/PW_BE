@@ -1,5 +1,5 @@
 import bcrypt from "bcrypt";
-import { rounds } from "@configs";
+import { ROUNDS as rounds } from "@configs";
 
 export const hash = async (password: string): Promise<string> => {
   const salt = await bcrypt.genSalt(rounds);

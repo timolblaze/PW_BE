@@ -24,7 +24,7 @@ export class ProductService<T extends IProduct> extends GenericService<T> {
             );
         }
 
-        const { category } = payload;
+        const { title, description, category, icon, price } = payload;
 
         const isExistingCategory = await categoryService.findOne({ _id: category })
         if (!isExistingCategory) {
@@ -32,6 +32,11 @@ export class ProductService<T extends IProduct> extends GenericService<T> {
         }
 
         payload.category = isExistingCategory._id
+
+        const isExistingProduct = await this.findOne({ title, description, category, icon, price })
+        if (isExistingProduct) {
+            throw new ForbiddenException(`This product already exists!`);
+        }
 
         const product = await this.create(payload)
         if (!product) {
@@ -115,7 +120,7 @@ export class ProductService<T extends IProduct> extends GenericService<T> {
     }
 
     async getProducts(query: any) {
-        const { id, title, isDeleted, sortBy, order } = query;
+        const { id, title, isDeleted, sortBy, order, categoryName, minPrice, maxPrice } = query;
 
         if (id) {
             delete query.id;
@@ -133,6 +138,40 @@ export class ProductService<T extends IProduct> extends GenericService<T> {
             query.isDeleted = isDeleted;
         }
 
+        if (minPrice || maxPrice) {
+            query.price = {};
+            if (minPrice) {
+                delete query.minPrice
+                query.price.$gte = Number(minPrice);
+            }
+            if (maxPrice) {
+                delete query.maxPrice
+                query.price.$lte = Number(maxPrice);
+            }
+        }
+
+        if (categoryName) {
+            const isExistingCategory = await categoryService.findOne({
+                title: {
+                    $regex: (categoryName as string).toLowerCase().trim(),
+                    $options: "i"
+                }
+            }, '_id');
+            
+            if (!isExistingCategory) {
+                // Skip the product query if no category found
+                return {
+                    message: "No products match your search criteria.",
+                    products: [],
+                    currentPage: 1,
+                    totalPages: 0
+                };
+            }
+
+            delete query.categoryName;
+            query.category = isExistingCategory._id.toString();
+        }
+
         let sort: { [key: string]: number } | null = {};
         const orderValue = order === 'asc' ? 1 : -1;
 
@@ -143,7 +182,7 @@ export class ProductService<T extends IProduct> extends GenericService<T> {
             sort.createdAt = orderValue;
             delete query.sortBy;
         }
-        
+
         const {
             data: products,
             currentPage,
@@ -154,10 +193,8 @@ export class ProductService<T extends IProduct> extends GenericService<T> {
             throw new InternalException()
         }
 
-        // (products as IProduct[]).forEach(async (product) => await this.incrementViewCount(product._id))
-
         return {
-            message: "Products successfully fetched!",
+            message: products.length > 0 ? "Products successfully fetched!" : "No products match your search criteria.",
             products,
             currentPage,
             totalPages

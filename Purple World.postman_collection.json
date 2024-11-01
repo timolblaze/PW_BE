@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "97d70988-acc9-4dc3-baa1-1a499aff56ea",
-		"name": "E-API",
+		"name": "Purple World",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "29282463"
 	},
@@ -46,7 +46,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"email\": \"somto@gmail.com\",\n    \"password\": \"password\"\n}\n\n// {\n//    \"email\": \"admin@gmail.com\",\n//     \"password\": \"password\"\n// }",
+							"raw": "// {\n//     \"email\": \"somto@gmail.com\",\n//     \"password\": \"password\"\n// }\n\n{\n   \"email\": \"admin@gmail.com\",\n    \"password\": \"password\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -458,7 +458,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzEzZTZjMWExM2Y0ZTdlZDViZTdjNDYiLCJpYXQiOjE3MjkzNzA2MDIsImV4cCI6MTczMDU4MDIwMn0.TeCjGk4_2Ik9QLOOXNcgw8mlpTnF1QEOT8o3_OPxqkQ",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzEzZTZjMWExM2Y0ZTdlZDViZTdjNDYiLCJpYXQiOjE3Mjk4MTQ0NjIsImV4cCI6MTczMTAyNDA2Mn0.ygAYdXLIUzp9MhX0-RXKD3HAtbGS11cirvyj6p70kB0",
 									"type": "string"
 								}
 							]
@@ -467,7 +467,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"title\": \"Baby t\",\n    \"description\": \"ghshshhsshhsshshs\",\n    \"category\": \"671419f904cc8f1c134c4de9\",\n    \"icon\": \"hhjdjdjdd\"\n}",
+							"raw": "{\n    \"title\": \"Vaseline cream\",\n    \"description\": \"This is some good cream x3.\",\n    \"category\": \"67142bd488bcdf75ae06711a\",\n    \"icon\": \"https://res.cloudinary.com/dhvkzmjzg/image/upload/v1729816079/eeqcrxxly7zpey08pnjp.jpg\",\n    \"price\": 1800\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -638,7 +638,7 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8080/api/v1/products?sortBy=popular&limit=2",
+							"raw": "localhost:8080/api/v1/products?sortBy=new&categoryName=groceries&maxPrice=2000",
 							"host": [
 								"localhost"
 							],
@@ -651,11 +651,15 @@
 							"query": [
 								{
 									"key": "sortBy",
-									"value": "popular"
+									"value": "new"
 								},
 								{
-									"key": "limit",
-									"value": "2"
+									"key": "categoryName",
+									"value": "groceries"
+								},
+								{
+									"key": "maxPrice",
+									"value": "2000"
 								}
 							]
 						}
@@ -920,6 +924,57 @@
 								"v1",
 								"orders",
 								"ref"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Files",
+			"item": [
+				{
+					"name": "Upload File",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzEzZTZjMWExM2Y0ZTdlZDViZTdjNDYiLCJpYXQiOjE3Mjk4MTQ0NjIsImV4cCI6MTczMTAyNDA2Mn0.ygAYdXLIUzp9MhX0-RXKD3HAtbGS11cirvyj6p70kB0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "",
+									"type": "file",
+									"src": [
+										"/Users/Somtuzy/Documents/purpleworld/purple world jpegs/skin care/212 MEN NYC.jpg",
+										"/Users/Somtuzy/Documents/purpleworld/purple world jpegs/skin care/AXE spray.jpg",
+										"/Users/Somtuzy/Documents/purpleworld/purple world jpegs/skin care/Nivea body cream.jpg",
+										"/Users/Somtuzy/Documents/purpleworld/purple world jpegs/skin care/Nivea shampoo.jpeg",
+										"/Users/Somtuzy/Documents/purpleworld/purple world jpegs/skin care/Oriflame cream.jpg",
+										"/Users/Somtuzy/Documents/purpleworld/purple world jpegs/skin care/Oriflame Repairing Night Cream.jpg",
+										"/Users/Somtuzy/Documents/purpleworld/purple world jpegs/skin care/Vaseline cream.jpg"
+									]
+								}
+							]
+						},
+						"url": {
+							"raw": "{{8080_v1}}/files/upload",
+							"host": [
+								"{{8080_v1}}"
+							],
+							"path": [
+								"files",
+								"upload"
 							]
 						}
 					},

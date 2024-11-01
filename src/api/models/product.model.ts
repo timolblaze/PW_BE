@@ -10,7 +10,6 @@ const productSchema = new Schema<IProduct>({
     },
     title: {
         type: String,
-        unique: true,
         trim: true,
         required: true
     },
@@ -25,7 +24,8 @@ const productSchema = new Schema<IProduct>({
     },
     price: {
         type: Number,
-        required: true
+        required: true,
+        default: 0
     },
     viewCount: {
         type: Number,

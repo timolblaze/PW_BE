@@ -153,7 +153,7 @@ export class UserService<T extends IUser> extends GenericService<T> {
     }
 
     return {
-      message: "Users successfully fetched",
+      message: users.length > 0 ? "Users successfully fetched"  : "No users match your search criteria.",
       users,
       currentPage,
       totalPages

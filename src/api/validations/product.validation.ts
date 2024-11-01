@@ -31,6 +31,20 @@ export const ProductSchemas = {
             'string.base': 'Icon must be a string.',
             'any.required': 'Icon is required.',
         }),
+    price: Joi.number()
+        .label('Price')
+        .messages({
+            'string.empty': 'Price cannot be empty.',
+            'string.base': 'Price must be a number.',
+            'any.required': 'Price is required.',
+        }),
+    categoryName: Joi.string()
+    .label('Category Name')
+    .messages({
+        'string.empty': 'Category Name cannot be empty.',
+        'string.base': 'Category Name must be a string.',
+        'any.required': 'Category Name is required.',
+    }),
     isDeleted: Joi.boolean(),
     page: Joi.number(),
     sortBy: Joi.string(),
@@ -38,7 +52,9 @@ export const ProductSchemas = {
     limit: Joi.number(),
     category: Joi.string().custom(checkMongooseId),
     id: Joi.string().custom(checkMongooseId),
-    _id: Joi.string().custom(checkMongooseId)
+    _id: Joi.string().custom(checkMongooseId),
+    maxPrice: Joi.number(),
+    minPrice: Joi.number()
 }
 
 export const ProductFields = {
@@ -47,7 +63,8 @@ export const ProductFields = {
             "title*",
             "description*",
             "category*",
-            "icon*"
+            "icon*",
+            "price*"
         ],
     },
     GetOneProduct: {
@@ -76,7 +93,10 @@ export const ProductFields = {
             "page",
             "limit",
             "sortBy",
-            "order"
+            "order",
+            "categoryName",
+            "minPrice",
+            "maxPrice"
         ]
     }
 }

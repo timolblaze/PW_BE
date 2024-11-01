@@ -20,11 +20,11 @@ export class AuthService {
   async register(payload: ICreateUser) {
     const { email } = payload;
 
-    const isExistingUser = await this.userService.findOne({ email })
+    // const isExistingUser = await this.userService.findOne({ email })
 
-    if (isExistingUser) {
-      throw new ForbiddenException("This email not available.");
-    }
+    // if (isExistingUser) {
+    //   throw new ForbiddenException("Email not available.");
+    // }
     
     const user = await this.userService.create(payload)
 

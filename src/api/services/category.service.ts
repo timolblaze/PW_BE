@@ -27,7 +27,7 @@ export class CategoryService<T extends ICategory> extends GenericService<T> {
 
         const isExistingCategory = await this.findOne({ title })
         if (isExistingCategory) {
-            throw new NotFoundException(`Category already exists!`);
+            throw new ForbiddenException(`Category already exists!`);
         }
 
         const category = await this.create(payload)
@@ -147,7 +147,7 @@ export class CategoryService<T extends ICategory> extends GenericService<T> {
         }
 
         return {
-            message: "Categories successfully fetched",
+            message: categories.length > 0 ? "Categories successfully fetched" : "No categories match your search criteria.",
             categories,
             currentPage,
             totalPages

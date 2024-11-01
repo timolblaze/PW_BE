@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { logger } from './utils';
-import { serverUrl, pingTime, apiVersion } from '@configs';
+import { SERVER_URL as serverUrl, TIME_TO_PING as pingTime, API_VERSION as apiVersion } from '@configs';
 
 const ping = async () => {
     try{

@@ -1,11 +1,13 @@
+import http from 'http'
 import 'express-async-errors';
-import app from './app';
 import './wakey';
-
-import { port, startDatabase } from '@configs';
+import { PORT as port, startDatabase } from '@configs';
 import { logger } from './utils';
+import app from './app';
 
-app.listen(port, () => {
+const server = http.createServer(app)
+
+server.listen(port, () => {
+  logger.info(`Server is listening for new requests on port ${port}...`)
   startDatabase()
-  logger.info(`listening on port ${port}`)
 })

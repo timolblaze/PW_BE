@@ -17,7 +17,7 @@ productRouter.post(
 productRouter.get(
     "/",
     [
-        authenticate,
+        // authenticate,
         validate(ProductSchemas, ProductFields.GetAllProducts)
     ],
     productController.getCategories
@@ -26,7 +26,7 @@ productRouter.get(
 productRouter.get(
     "/:id",
     [
-        authenticate,
+        // authenticate,
         validate(ProductSchemas, ProductFields.GetOneProduct)
     ],
     productController.getProduct
