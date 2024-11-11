@@ -20,11 +20,11 @@ export class AuthService {
   async register(payload: ICreateUser) {
     const { email } = payload;
 
-    // const isExistingUser = await this.userService.findOne({ email })
+    const isExistingUser = await this.userService.findOne({ email })
 
-    // if (isExistingUser) {
-    //   throw new ForbiddenException("Email not available.");
-    // }
+    if (isExistingUser) {
+      throw new ForbiddenException("Email not available.");
+    }
     
     const user = await this.userService.create(payload)
 
@@ -52,7 +52,6 @@ export class AuthService {
       throw new NotFoundException("User Not Found");
     }
     
-    console.log(234, email, password, isExistingUser.password, isExistingUser);
     const isValidPassword = await verifyHash(password, isExistingUser.password);
     if (!isValidPassword) {
       throw new UnAuthorizedException("Invalid email or password");

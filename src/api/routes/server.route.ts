@@ -8,11 +8,6 @@ serverRouter.get('/ping', serverController.ping);
 
 serverRouter.get(
     '/', 
-    serverController.redirectToHome
-);
-
-serverRouter.get(
-    `${apiVersion}`, 
     serverController.sayWelcome
 );
 

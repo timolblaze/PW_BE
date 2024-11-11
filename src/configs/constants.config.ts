@@ -18,6 +18,7 @@ export const MESSAGES = {
     LOGOUT_SUCCESSFUL: 'You have successfully logged out',
     LOGOUT_SUCCESS_MAIL: `You successfully logged out of your LearnWave account. Please reset your password if this wasn't you`,
     LOGOUT_FAILED: 'Logout failed',
+    ALREADY_LOGGED_OUT: "You are already logged out!",
     PASSWORD_RESET_SUCCESSFUL: 'Password reset successful',
     PASSWORD_RESET_SUCCESS_MAIL: `Your password was reset successfully!`,
     PASSWORD_RESET_FAILED: 'Password reset failed',

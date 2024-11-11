@@ -13,15 +13,14 @@ class ServerController {
     }
 
     sayWelcome(req: Request, res: Response, next: NextFunction) {
-        if (isHome(req)) return sendResponse(res, 200, true, 'Welcome to learnwave api')
+        if (isHome(req)) return sendResponse(res, 200, true, 'Welcome to purpleworld api')
         next()
     }
 
     redirect = (url: string, res: Response) => res.redirect(301, url)
 
     redirectToHome = (req: Request, res: Response, next: NextFunction) => {
-        if (isHome(req)) this.redirect('/', res)
-        next()
+        if (isHome(req)) this.redirect(`/api/v1`, res)
     }
 
     ping = async (req: Request, res: Response) => {

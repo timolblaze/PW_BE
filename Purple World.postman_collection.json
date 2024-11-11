@@ -7,7 +7,7 @@
 	},
 	"item": [
 		{
-			"name": "Profile Mgt",
+			"name": "Auth & Profile Mgt",
 			"item": [
 				{
 					"name": "Register",
@@ -46,7 +46,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "// {\n//     \"email\": \"somto@gmail.com\",\n//     \"password\": \"password\"\n// }\n\n{\n   \"email\": \"admin@gmail.com\",\n    \"password\": \"password\"\n}",
+							"raw": "{\n    \"email\": \"customer1@gmail.com\",\n    \"password\": \"password\"\n}\n\n// {\n//    \"email\": \"admin@gmail.com\",\n//     \"password\": \"password\"\n// }",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -64,6 +64,36 @@
 								"v1",
 								"auth",
 								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/auth/logout",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"logout"
 							]
 						}
 					},
@@ -598,13 +628,16 @@
 							}
 						},
 						"url": {
-							"raw": "{{8080_v1}}/products/67142a03e7991515ad1c08ff",
+							"raw": "localhost:8080/api/v1/products/671ae510c5e40909954f6ca5",
 							"host": [
-								"{{8080_v1}}"
+								"localhost"
 							],
+							"port": "8080",
 							"path": [
+								"api",
+								"v1",
 								"products",
-								"67142a03e7991515ad1c08ff"
+								"671ae510c5e40909954f6ca5"
 							]
 						}
 					},
