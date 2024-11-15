@@ -1,0 +1,22 @@
+{
+    "reference": "7cd89e88-2a11-490f-80f2-1862dc0ddcc1",
+    "items": [
+        {
+            "_id": "67142a03e7991515ad1c08ff",
+            "category": {
+                "_id": "67142bc188bcdf75ae067119",
+                "title": "groceries",
+                "description": "something random bout groceries.",
+                "icon": "https://c8.alamy.com/comp/DCB805/variety-of-grocery-products-fruits-vegetables-meat-cheese-and-bread-DCB805.jpg",
+                "isDeleted": false
+            },
+            "title": "Banana",
+            "description": "This is some sweet banana.",
+            "icon": "https://res.cloudinary.com/dhvkzmjzg/image/upload/v1729814617/fedm0fczrikklkwa5szf.jpg",
+            "price": 1000,
+            "subtotal": 4000,
+            "quantity": 4
+        }
+    ],
+    "amount": 5000
+}

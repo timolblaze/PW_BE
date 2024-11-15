@@ -1,13 +1,15 @@
 import { Request, Response } from "express";
 import { orderService } from "@services";
 import { IUser } from "@interfaces";
-import { sendResponse } from "@utils";
+import { sendResponse, extractHeader, extractCookie, decodeUser } from "@utils";
 
 class OrderController {
     async createOrder(req: Request, res: Response) {
-        const user = req.user as unknown as IUser;
+        const authHeader = extractHeader(req, "Authorization")
+        const authCookie = extractCookie(req, "accessToken")
+        const accessToken = authHeader || authCookie 
 
-        const { message, order: data } = await orderService.createOrder(user, req.body);
+        const { message, order: data } = await orderService.createOrder(req.body, accessToken);
 
         return sendResponse(res, 200, true, message, data);
     }

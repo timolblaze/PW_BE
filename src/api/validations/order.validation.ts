@@ -30,7 +30,17 @@ export const OrderSchemas = {
     sortBy: Joi.string(),
     order: Joi.string(),
     limit: Joi.number(),
-    product: Joi.string().custom(checkMongooseId),
+    items: Joi.array().items(Joi.object({
+        id: Joi.string().custom(checkMongooseId),
+        _id: Joi.string().custom(checkMongooseId),
+        title: Joi.string(),
+        // description: Joi.string(),
+        // icon: Joi.string(),
+        price: Joi.number(),
+        // category: Joi.object(),
+        quantity: Joi.number(),
+        subtotal: Joi.number()
+    })),
     user: Joi.string().custom(checkMongooseId),
     id: Joi.string().custom(checkMongooseId),
     _id: Joi.string().custom(checkMongooseId)
@@ -40,7 +50,7 @@ export const OrderFields = {
     CreateOrder: {
         body: [
             "reference*",
-            "product*",
+            "items*",
             "amount*"
         ],
     },
@@ -63,7 +73,7 @@ export const OrderFields = {
             "id",
             "_id",
             "reference",
-            "product",
+            "items",
             "user",
             "page",
             "limit",

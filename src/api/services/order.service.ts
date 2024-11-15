@@ -8,8 +8,8 @@ import {
     UnAuthorizedException,
     InternalException
 } from "./error.service";
-import { IUpdateOrder, IOrder, IUser, ICreateOrder } from "@interfaces";
-import { isAuthorised, generateUniqueId } from "@utils";
+import { IUpdateOrder, IOrder, IUser, ICreateOrder, IOrderItem } from "@interfaces";
+import { isAuthorised, generateUniqueId, decodeUser } from "@utils";
 
 export class OrderService<T extends IOrder> extends GenericService<T> {
     constructor(model: Model<T>) {
@@ -19,7 +19,6 @@ export class OrderService<T extends IOrder> extends GenericService<T> {
 
     async generateReference() {
         const reference = generateUniqueId()
-        console.log(reference);
         
         return {
             message: `Reference generated successfully!`,
@@ -27,18 +26,29 @@ export class OrderService<T extends IOrder> extends GenericService<T> {
         };
     }
 
-    async createOrder(user: IUser, payload: ICreateOrder) {
-        const { product, amount } = payload
+    async createOrder(payload: ICreateOrder, accessToken: string | undefined) {
+        const { items, amount } = payload
 
-        const isExistingProduct = await productService.findOne({ _id: product })
-        if (!isExistingProduct) {
-            throw new NotFoundException(`Product does not exist!`);
+        for(const item of items) {
+            const isExistingProduct = await productService.findOne({ _id: (item as IOrderItem)._id })
+            if (!isExistingProduct) {
+                throw new NotFoundException(`${(item as IOrderItem).title} does not exist!`);
+            }
         }
 
-        payload.product = isExistingProduct._id
-        payload.user = user._id
+        payload.items = items.map(item => (item as IOrderItem)._id)
+        let userId: string | null = null
 
-        if(amount !== isExistingProduct.price) {
+        if(accessToken) {
+            userId = (await decodeUser(accessToken))._id
+        } 
+        payload.user = userId
+
+        const total = items.reduce((previousValue, item) => {
+            return previousValue + (item as IOrderItem).subtotal
+        }, 0)
+
+        if(amount !== total) {
             throw new ForbiddenException("The payable amount must be the same with the payment amount.")
         }
 
@@ -149,11 +159,12 @@ export class OrderService<T extends IOrder> extends GenericService<T> {
             delete query.sortBy;
         }
         
+        const finalQuery = await this.addUserToQuery(user, query)
         const {
             data: orders,
             currentPage,
             totalPages,
-        } = await this.findAll({ ...query, sort });
+        } = await this.findAll({ ...finalQuery, sort });
 
         if (!orders) {
             throw new InternalException()
@@ -161,18 +172,28 @@ export class OrderService<T extends IOrder> extends GenericService<T> {
 
         return {
             message: "Orders successfully fetched!",
-            orders: this.filterOrders(user, orders as IOrder[]),
+            // orders: this.filterOrders(user, orders as IOrder[]),
+            orders,
             currentPage,
             totalPages
         }
     }
 
-    filterOrders(user: IUser, orders: IOrder[]) {
-        if(user.role === "admin") {
-            return orders
-        } 
+    // filterOrders(user: IUser, orders: IOrder[]) {
+    //     if(user.role === "admin") {
+    //         return orders
+    //     } 
         
-        return orders.filter(order => user._id.toString() === (order.user as unknown as IUser)._id.toString())
+    //     return orders.filter(order => order.user &&  user._id.toString() === (order.user as unknown as IUser)?._id.toString())
+    // }
+
+    async addUserToQuery(user: IUser, query: any) {
+        if(user.role === "admin") {
+            return query
+        } 
+
+        query.user = user._id.toString()
+        return query
     }
 }
 

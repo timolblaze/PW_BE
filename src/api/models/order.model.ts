@@ -6,12 +6,14 @@ const orderSchema = new Schema<IOrder>({
     user: {
         type: Schema.Types.ObjectId,
         ref: "User",
-        autopopulate: { select: '-isDeleted -__v -createdAt -updatedAt -password' } 
+        autopopulate: { select: '-isDeleted -__v -createdAt -updatedAt -password' }
     },
-    product: {
-        type: Schema.Types.ObjectId,
-        ref: "Product",
-        autopopulate: { select: '-isDeleted -__v -createdAt -updatedAt' } 
+    items: {
+        type: [{
+            type: [Schema.Types.ObjectId],
+            ref: "Product",
+            autopopulate: { select: '-isDeleted -__v -createdAt -updatedAt' }
+        }]
     },
     reference: {
         type: String,

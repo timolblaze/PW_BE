@@ -26,6 +26,12 @@ export class UnAuthorizedException extends AppError {
     }
 }
 
+export class BadRequestException extends AppError {
+    constructor(message?: string) {
+        super("BadRequest", message || "The request could not be understood or was missing required parameters.", 400);
+    }
+}
+
 export class InternalException extends AppError {
     constructor(message?: string) {
         super("Internal Server Error", "There was a temporary problem completing your request. Please try again.", 500)

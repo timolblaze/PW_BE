@@ -8,7 +8,6 @@ const orderRouter = Router();
 orderRouter.post(
     "/new",
     [
-        authenticate,
         validate(OrderSchemas, OrderFields.CreateOrder)
     ],
     orderController.createOrder
@@ -16,10 +15,6 @@ orderRouter.post(
 
 orderRouter.get(
     "/ref",
-    [
-        authenticate,
-        // validate(OrderSchemas, OrderFields.CreateOrder)
-    ],
     orderController.getRef
 );
 

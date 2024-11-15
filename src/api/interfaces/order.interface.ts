@@ -1,9 +1,15 @@
 import { Document, Types } from "mongoose";
+import { IProduct } from "./product.interface";
+
+export interface IOrderItem extends IProduct {
+    subtotal: number;
+    quantity: number;
+}
 
 export interface IOrderData {
     reference: string;
-    user: string | Types.ObjectId;
-    product: string | Types.ObjectId;
+    user: string | Types.ObjectId | null;
+    items: string[] | IOrderItem[];
     amount: number;
     status: string;
     isDeleted: boolean;
