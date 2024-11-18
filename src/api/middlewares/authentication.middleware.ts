@@ -12,7 +12,7 @@ export default async (req: Request, res: Response, next: NextFunction) => {
   const accessTokenCookie = await extractCookie(req, "accessToken")
 
   const accessToken = accessTokenHeader || accessTokenCookie
-  
+
   if (!accessToken) {
     return sendResponse(res, 403, false, 'Login to continue')
   }

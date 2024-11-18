@@ -34,7 +34,7 @@ export const decodeUser = async (accessToken: string) => {
 
     const user = await userService.findOne({ _id: (decoded as JwtPayload)._id });
     if (!user) {
-        throw new NotFoundException('User not found')
+        throw new NotFoundException('Authentication failed. The associated user account no longer exists. Please log in again or contact support if this is unexpected.')
     }
 
     return user;

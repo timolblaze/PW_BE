@@ -8,23 +8,24 @@ const orderSchema = new Schema<IOrder>({
         ref: "User",
         autopopulate: { select: '-isDeleted -__v -createdAt -updatedAt -password' }
     },
-    items: {
-        type: [{
-            type: [Schema.Types.ObjectId],
-            ref: "Product",
-            autopopulate: { select: '-isDeleted -__v -createdAt -updatedAt' }
-        }]
+    // items:  {
+    //     type: [Schema.Types.ObjectId],
+    //     ref: "Product",
+    //     autopopulate: { select: 'title price' }
+    // },
+    items:  {
+        type: [Object]
     },
     reference: {
         type: String,
         unique: true,
         trim: true
     },
-    status: {
-        type: String,
-        enum: ['pending', 'completed'],
-        default: "pending"
-    },
+    // status: {
+    //     type: String,
+    //     enum: ['pending', 'completed'],
+    //     default: "pending"
+    // },
     amount: {
         type: Number
     },

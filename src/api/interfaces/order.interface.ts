@@ -9,9 +9,9 @@ export interface IOrderItem extends IProduct {
 export interface IOrderData {
     reference: string;
     user: string | Types.ObjectId | null;
-    items: string[] | IOrderItem[];
+    items: IOrderItem[];
     amount: number;
-    status: string;
+    // status: string;
     isDeleted: boolean;
 }
 
